@@ -51,12 +51,13 @@ async function createWindow() {
     webPreferences: {
       preload,
       // Warning: Enable nodeIntegration and disable contextIsolation is not secure in production
-      // nodeIntegration: true,
+       nodeIntegration: true,
 
       // Consider using contextBridge.exposeInMainWorld
       // Read more on https://www.electronjs.org/docs/latest/tutorial/context-isolation
       // contextIsolation: false,
     },
+    autoHideMenuBar: true,
   })
 
   if (process.env.VITE_DEV_SERVER_URL) { // electron-vite-vue#298
