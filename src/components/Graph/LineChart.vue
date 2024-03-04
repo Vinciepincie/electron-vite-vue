@@ -22,6 +22,13 @@ export default {
             backgroundColor: 'transparent',
             data: [80, 85, 70, 75, 80, 85, 80, 95, 100, 85],
             fill: false
+          },
+          {
+            label: 'Blood Pressure',
+            borderColor: 'orange',
+            backgroundColor: 'transparent',
+            data: [120, 130, 125, 120, 115, 110, 105, 100, 95, 90],
+            fill: false
           }
         ]
       },
@@ -30,8 +37,8 @@ export default {
         maintainAspectRatio: false,
         scales: {
           y: {
-            min: 50,
-            max: 100
+            min: 70,
+            max: 130
           },
         }
       }
@@ -47,11 +54,14 @@ export default {
       labels.push((parseInt(labels[labels.length - 1]) + 1).toString());
       labels.shift();
 
-      // add new data between 70-100, remove lowest data
+      // Add new hearrate data between 70-100, remove lowest data.
       const datasets = dataCopy.datasets;
       datasets[0].data.push(Math.floor(Math.random() * 30) + 70);
       datasets[0].data.shift();
 
+      // Add new blood pressure data between 90-130, remove lowest data.
+      datasets[1].data.push(Math.floor(Math.random() * 40) + 90);
+      datasets[1].data.shift();
 
       // set new data
       this.data = dataCopy;
