@@ -47,6 +47,7 @@ export default {
     };
   },
   methods: {
+    // Generate random data to mimic real-time data
     increment() {
       // deep clone data object.
       const dataCopy = JSON.parse(JSON.stringify(this.data));
@@ -56,7 +57,7 @@ export default {
       labels.push((parseInt(labels[labels.length - 1]) + 1).toString());
       labels.shift();
 
-      // Add new hearrate data between 70-100, remove lowest data.
+      // Add new heartrate data between 70-100, remove lowest data.
       const datasets = dataCopy.datasets;
       datasets[0].data.push(Math.floor(Math.random() * 30) + 70);
       datasets[0].data.shift();
@@ -65,9 +66,8 @@ export default {
       datasets[1].data.push(Math.floor(Math.random() * 40) + 90);
       datasets[1].data.shift();
 
-      // set new data
+      // Apply changes to data object.
       this.data = dataCopy;
-
     },
   },
   mounted() {
