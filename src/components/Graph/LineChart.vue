@@ -15,14 +15,16 @@ export default {
     return {
       data: {
         labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+        // Elke dataset representeert een lijn in de grafiek.
         datasets: [
           {
             label: 'Heart Rate',
-            borderColor: '#f87979',
+            borderColor: '#f87979', // 1.1 kleur aanpassen binnen de grafiek.
             backgroundColor: 'transparent',
             data: [80, 85, 70, 75, 80, 85, 80, 95, 100, 85],
             fill: false
           },
+          // 1.2 Samengestelde grafiek met meerdere lijnen.
           {
             label: 'Blood Pressure',
             borderColor: 'orange',
