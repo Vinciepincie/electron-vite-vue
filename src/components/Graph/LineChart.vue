@@ -28,7 +28,12 @@ export default {
       options: {
         responsive: true,
         maintainAspectRatio: false,
-
+        scales: {
+          y: {
+            min: 50,
+            max: 100
+          },
+        }
       }
     };
   },
@@ -54,7 +59,7 @@ export default {
     },
   },
   mounted() {
-    setInterval(this.increment, 500);
+    setInterval(this.increment, 250);
   }
 };
 </script>
