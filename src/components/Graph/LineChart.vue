@@ -30,7 +30,7 @@ export default {
             borderColor: 'orange',
             backgroundColor: 'transparent',
             data: [120, 130, 125, 120, 115, 110, 105, 100, 95, 90],
-            fill: false
+            fill: "smooth",
           }
         ]
       },
@@ -42,13 +42,20 @@ export default {
             min: 70,
             max: 130
           },
-        }
+        },
+        fill: "smooth",
       }
     };
   },
   methods: {
     // Generate random data to mimic real-time data
-    increment() {
+    incrementData() {
+      const newData = this.generateData();
+
+      // Apply changes to data object.
+      this.data = newData;
+    },
+    generateData() {
       // deep clone data object.
       const dataCopy = JSON.parse(JSON.stringify(this.data));
 
@@ -65,13 +72,12 @@ export default {
       // Add new blood pressure data between 90-130, remove lowest data.
       datasets[1].data.push(Math.floor(Math.random() * 40) + 90);
       datasets[1].data.shift();
-
-      // Apply changes to data object.
-      this.data = dataCopy;
-    },
+      console.log(dataCopy);
+      return dataCopy;
+    }
   },
   mounted() {
-    setInterval(this.increment, 250);
+    setInterval(this.incrementData, 250);
   }
 };
 </script>
